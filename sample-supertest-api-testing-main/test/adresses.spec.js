@@ -9,7 +9,7 @@ describe('Adresses', () => {
 
 
     beforeAll(async () => {
-        token = await getAccessToken('gabriel', 'admin')
+        token = await getAccessToken('admin', 'admin')
     })
 
     it('(AdressesRegister) Cadastrar Endereços', async () => {

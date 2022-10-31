@@ -8,7 +8,7 @@ describe('Clientes', () => {
     const nomes = ['Lucas', 'Luigi', 'Mario bagio']
 
     beforeAll(async () => {
-        token = await getAccessToken('gabriel', 'admin')
+        token = await getAccessToken('admin', 'admin')
     })
 
     it('(RegisterCustomers) Cadastrar Clientes', async () => {
@@ -23,7 +23,7 @@ describe('Clientes', () => {
             .set('Authorization', `Bearer ${token}`)
             .send({
                 "address": {
-                  "id": "cl9nefig502860spik8afn6c1"
+                  "id": "cl9xciy570133bwpikkxw5vyv"
                },
 
                 "email": email,
