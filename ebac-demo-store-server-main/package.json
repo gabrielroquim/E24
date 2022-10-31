@@ -17,7 +17,7 @@
     "docker:build": "docker build ."
   },
   "dependencies": {
-    "@nestjs/common": "7.6.18",
+    "@nestjs/common": "7.6.18f",
     "@nestjs/config": "0.6.3",
     "@nestjs/core": "7.6.18",
     "@nestjs/graphql": "7.9.1",
