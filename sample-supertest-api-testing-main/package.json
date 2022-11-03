@@ -22,5 +22,6 @@
   "directories": {
     "test": "test"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {}
 }

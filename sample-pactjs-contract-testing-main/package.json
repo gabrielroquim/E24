@@ -18,13 +18,15 @@
   },
   "author": "ernestosbarbosa",
   "dependencies": {
-    "@pact-foundation/pact": "^9.17.0",
-    "@pact-foundation/pact-node": "^10.15.0",
+    "@pact-foundation/pact": "^10.1.4",
+    "@pact-foundation/pact-node": "^10.17.6",
     "@sucrase/jest-plugin": "^2.2.0",
     "@types/jest": "^27.0.3",
     "axios": "^0.24.0",
     "dotenv": "^10.0.0",
+    "env": "^0.0.2",
     "jest": "^27.3.1",
-    "start-server-and-test": "^1.14.0"
+    "start-server-and-test": "^1.14.0",
+    "sucrase": "^3.28.0"
   }
 }
