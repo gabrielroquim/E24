@@ -23,13 +23,13 @@ describe('Consumer Test', () => {
                     method: 'POST',
                     path: '/graphql',
                     headers: {
-                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdhYnJpZWwiLCJpYXQiOjE2Njc1MTQ4MzMsImV4cCI6MTY2NzY4NzYzM30.8sB6b3VcpiusZNfBgJOAvbtRPRknVzyfEXDwacwf2K4',
+                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjM3NjM1OTk4LCJleHAiOjE2Mzc4MDg3OTh9.oDPW0raH0iF-y5UGGb1_OkcD8AW_iLUV3EagvF0jzfQ',
                         "Content-Type": 'application/json'
                     },
                     body: {
-                        "operationName": "customers",
+                        "operationName": "users",
                         "variables": {},
-                        "query": "query customers($where: CustomerWhereInput, $orderBy: CustomerOrderByInput, $skip: Float, $take: Float) {\n  items: customers(where: $where, orderBy: $orderBy, skip: $skip, take: $take) {\n    createdAt\n    email\n    firstName\n    id\n    lastName\n    phone\n    updatedAt\n    orders {\n      id\n      __typename\n    }\n    address {\n      id\n      __typename\n    }\n    __typename\n  }\n  total: _customersMeta(where: $where, orderBy: $orderBy, skip: $skip, take: $take) {\n    count\n    __typename\n  }\n}\n"
+                        "query": "query users($where: UserWhereInput, $orderBy: UserOrderByInput, $skip: Float, $take: Float) {\n  items: users(where: $where, orderBy: $orderBy, skip: $skip, take: $take) {\n    createdAt\n    firstName\n    id\n    lastName\n    roles\n    updatedAt\n    username\n    __typename\n  }\n  total: _usersMeta(where: $where, orderBy: $orderBy, skip: $skip, take: $take) {\n    count\n    __typename\n  }\n}\n"
                     }
                 },
                 willRespondWith: {
@@ -41,21 +41,19 @@ describe('Consumer Test', () => {
                         "data": {
                             "items": eachLike(
                                 {
-                                    "createdAt": somethingLike("2022-10-24T23:07:43.271Z"),
-                                    "email": somethingLike("Cristina44@gmail.com"),
-                                    "firstName": somethingLike("Bernd"),
-                                    "id": somethingLike("cl9ne2zom01390spiwhf2kvsg"),
-                                    "lastName": somethingLike("Franco"),
-                                    "phone": somethingLike("(74) 73937-5189"),
-                                    "updatedAt": somethingLike ("2022-10-24T23:07:43.271Z"),
-                                    "orders": [],
-                                    "address":somethingLike(null),
-                                    "__typename": "Customer"
+                                    "createdAt": somethingLike("2021-11-21T19:57:22.221Z"),
+                                    "firstName": somethingLike("Ernesto"),
+                                    "id": somethingLike("ckw9nw4h90000ouup31sak6l3"),
+                                    "lastName": somethingLike("Barbosa"),
+                                    "roles": ["user"],
+                                    "updatedAt": somethingLike("2021-11-23T01:09:22.828Z"),
+                                    "username": somethingLike("admin"),
+                                    "__typename": somethingLike("User")
                                 },
                                 { min: 2 }
                             ),
                             "total": {
-                                "count": "8",
+                                "count": "2",
                                 "__typename": "MetaQueryPayload"
                             }
                         }
@@ -69,13 +67,13 @@ describe('Consumer Test', () => {
     afterAll(() => mockProvider.finalize())
     afterEach(() => mockProvider.verify())
 
-    it('should return customers list', () => {
+    it('should return user list', () => {
         userList().then(response => {
-            const { email, lastName } = response.data.data.items[0]
+            const { firstName, lastName } = response.data.data.items[1]
 
             expect(response.status).toEqual(200)
-            expect(email).toBe('Cristina44@gmail.com')
-            expect(lastName).toBe('Franco')
+            expect(firstName).toBe('Ernesto')
+            expect(lastName).toBe('Barbosa')
         })
     });
 });
