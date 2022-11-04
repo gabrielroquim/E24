@@ -47,9 +47,9 @@ describe('Consumer Test', () => {
                                     "id": somethingLike("cl9ne2zom01390spiwhf2kvsg"),
                                     "lastName": somethingLike("Franco"),
                                     "phone": somethingLike("(74) 73937-5189"),
-                                    "updatedAt": somethingLike ("2022-10-24T23:07:43.271Z"),
+                                    "updatedAt": somethingLike("2022-10-24T23:07:43.271Z"),
                                     "orders": [],
-                                    "address":somethingLike(null),
+                                    "address": somethingLike(null),
                                     "__typename": "Customer"
                                 },
                                 { min: 2 }

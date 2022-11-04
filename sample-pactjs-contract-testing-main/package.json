@@ -21,7 +21,7 @@
     "@pact-foundation/pact": "^10.1.4",
     "@pact-foundation/pact-node": "^10.17.6",
     "@sucrase/jest-plugin": "^2.2.0",
-    "@types/jest": "^27.0.3",
+    "@types/jest": "^27.5.2",
     "axios": "^0.24.0",
     "dotenv": "^10.0.0",
     "env": "^0.0.2",

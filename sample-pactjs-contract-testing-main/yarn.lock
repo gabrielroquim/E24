@@ -725,12 +725,12 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@^27.0.3":
-  "integrity" "sha512-cmmwv9t7gBYt7hNKH5Spu7Kuu/DotGa+Ff+JGRKZ4db5eh8PnKS4LuebJ3YLUoyOyIHraTGyULn23YtEAm0VSg=="
-  "resolved" "https://registry.npmjs.org/@types/jest/-/jest-27.0.3.tgz"
-  "version" "27.0.3"
+"@types/jest@^27.5.2":
+  "integrity" "sha512-mpT8LJJ4CMeeahobofYWIjFo0xonRS/HfxnVEPMPFSQdGUt1uHCnoPT7Zhb+sjDU2wz0oKV0OLUR0WzrHNgfeA=="
+  "resolved" "https://registry.npmjs.org/@types/jest/-/jest-27.5.2.tgz"
+  "version" "27.5.2"
   dependencies:
-    "jest-diff" "^27.0.0"
+    "jest-matcher-utils" "^27.0.0"
     "pretty-format" "^27.0.0"
 
 "@types/mime@^1":
@@ -2315,7 +2315,7 @@
     "micromatch" "^4.0.4"
     "pretty-format" "^27.3.1"
 
-"jest-diff@^27.0.0", "jest-diff@^27.3.1":
+"jest-diff@^27.3.1":
   "integrity" "sha512-PCeuAH4AWUo2O5+ksW4pL9v5xJAcIKPUPfIhZBcG1RKv/0+dvaWTQK1Nrau8d67dp65fOqbeMdoil+6PedyEPQ=="
   "resolved" "https://registry.npmjs.org/jest-diff/-/jest-diff-27.3.1.tgz"
   "version" "27.3.1"
@@ -2425,7 +2425,7 @@
     "jest-get-type" "^27.3.1"
     "pretty-format" "^27.3.1"
 
-"jest-matcher-utils@^27.3.1":
+"jest-matcher-utils@^27.0.0", "jest-matcher-utils@^27.3.1":
   "integrity" "sha512-hX8N7zXS4k+8bC1Aj0OWpGb7D3gIXxYvPNK1inP5xvE4ztbz3rc4AkI6jGVaerepBnfWB17FL5lWFJT3s7qo8w=="
   "resolved" "https://registry.npmjs.org/jest-matcher-utils/-/jest-matcher-utils-27.3.1.tgz"
   "version" "27.3.1"
