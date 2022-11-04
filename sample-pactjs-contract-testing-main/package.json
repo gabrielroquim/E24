@@ -26,6 +26,7 @@
     "dotenv": "^10.0.0",
     "env": "^0.0.2",
     "jest": "^27.3.1",
+    "pact": "^4.3.2",
     "start-server-and-test": "^1.14.0",
     "sucrase": "^3.28.0"
   }
