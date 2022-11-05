@@ -16,10 +16,10 @@
           "Content-Type": "application/json"
         },
         "body": {
-          "operationName": "users",
+          "operationName": "customers",
           "variables": {
           },
-          "query": "query users($where: UserWhereInput, $orderBy: UserOrderByInput, $skip: Float, $take: Float) {\n  items: users(where: $where, orderBy: $orderBy, skip: $skip, take: $take) {\n    createdAt\n    firstName\n    id\n    lastName\n    roles\n    updatedAt\n    username\n    __typename\n  }\n  total: _usersMeta(where: $where, orderBy: $orderBy, skip: $skip, take: $take) {\n    count\n    __typename\n  }\n}\n"
+          "query": "query customers($where: CustomerWhereInput, $orderBy: CustomerOrderByInput, $skip: Float, $take: Float) {\n  items: customers(where: $where, orderBy: $orderBy, skip: $skip, take: $take) {\n    createdAt\n    email\n    firstName\n    id\n    lastName\n    phone\n    updatedAt\n    orders {\n      id\n      __typename\n    }\n    address {\n      id\n      __typename\n    }\n    __typename\n  }\n  total: _customersMeta(where: $where, orderBy: $orderBy, skip: $skip, take: $take) {\n    count\n    __typename\n  }\n}\n"
         }
       },
       "response": {
@@ -31,34 +31,55 @@
           "data": {
             "items": [
               {
-                "createdAt": "2021-11-21T19:57:22.221Z",
-                "firstName": "Ernesto",
-                "id": "ckw9nw4h90000ouup31sak6l3",
-                "lastName": "Barbosa",
-                "roles": [
-                  "user"
-                ],
-                "updatedAt": "2021-11-23T01:09:22.828Z",
-                "username": "admin",
-                "__typename": "User"
-              },
-              {
-                "createdAt": "2021-11-21T19:57:22.221Z",
-                "firstName": "Ernesto",
-                "id": "ckw9nw4h90000ouup31sak6l3",
-                "lastName": "Barbosa",
-                "roles": [
-                  "user"
-                ],
-                "updatedAt": "2021-11-23T01:09:22.828Z",
-                "username": "admin",
-                "__typename": "User"
-              }
-            ],
-            "total": {
-              "count": "2",
-              "__typename": "MetaQueryPayload"
+                "createdAt": "2022-10-31T22:21:15.355Z",
+                "email": "Avatar@disney",
+                "firstName": "Amelia",
+                "id": "cl9xci76j0124bwpihuspxkri",
+                "lastName": "laurani",
+                "phone": "56222611",
+                "updatedAt": "2022-11-03T22:31:05.369Z",
+                "orders": [],
+                "address": {
+                    "id": "cl9xckcyq0180bwpi9k1c980w",
+                    "__typename": "Address"
+                },
+                "__typename": "Customer"
+            },
+            {
+                "createdAt": "2022-10-31T22:22:17.953Z",
+                "email": "Cristina44@gmail.com",
+                "firstName": "Bernd",
+                "id": "cl9xcjjhd0144bwpidzpj4a2m",
+                "lastName": "Franco",
+                "phone": "(90) 92274-4798",
+                "updatedAt": "2022-10-31T22:22:17.954Z",
+                "orders": [],
+                "address": {
+                    "id": "cl9xciy570133bwpikkxw5vyv",
+                    "__typename": "Address"
+                },
+                "__typename": "Customer"
+            },
+            {
+                "createdAt": "2022-10-31T22:22:56.146Z",
+                "email": "Ireno_Barros45@gmail.com",
+                "firstName": "Jaderson",
+                "id": "cl9xckcya0168bwpi2jsntqme",
+                "lastName": "Carvalho",
+                "phone": "(40) 83211-9094",
+                "updatedAt": "2022-10-31T22:22:56.146Z",
+                "orders": [],
+                "address": {
+                    "id": "cl9xciy570133bwpikkxw5vyv",
+                    "__typename": "Address"
+                },
+                "__typename": "Customer"
             }
+        ],
+        "total": {
+            "count": "3",
+            "__typename": "MetaQueryPayload"
+        }
           }
         },
         "matchingRules": {
@@ -83,7 +104,7 @@
           "$.body.data.items[*].updatedAt": {
             "match": "type"
           },
-          "$.body.data.items[*].username": {
+          "$.body.data.items[*].email": {
             "match": "type"
           },
           "$.body.data.items[*].__typename": {
