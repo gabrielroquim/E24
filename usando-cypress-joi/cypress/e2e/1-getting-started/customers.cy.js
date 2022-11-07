@@ -7,12 +7,11 @@ var faker = require('faker-br')
 describe('Teste de Cliente API', () => {
 
     let token
-    beforeAll(async() => {
-       cy.token('admin', 'admin').then(tkn => { token = tkn})
-    })
+    before(async () => {
+        cy.token('admin', 'admin').then(tkn => { token = tkn })
+    });
 
     it('Cadastrar Clientes', () => {
-
         cy.request({
             method: 'POST',
             url: '/customers',
@@ -26,7 +25,7 @@ describe('Teste de Cliente API', () => {
                 "lastName": "Cypress",
                 "phone": "01198530447"
             },
-           
+
         }).then((response) => {
             expect(response.status).to.equal(201)
         })
