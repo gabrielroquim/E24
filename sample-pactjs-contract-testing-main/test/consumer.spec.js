@@ -70,7 +70,7 @@ describe('Consumer Test', () => {
     })
 
     afterAll(() => mockProvider.finalize())
-    //afterEach(() => mockProvider.verify())
+    afterEach(() => mockProvider.verify())
 
     it('should return customers list', () => {
        customersList().then(response => {
