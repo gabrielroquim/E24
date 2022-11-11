@@ -24,16 +24,36 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('token', (email, senha) => {
+Cypress.Commands.add('token', (email, senha) => { 
     cy.request({
         method: 'POST',
-        url: '/login',
+        url: 'login',      
         body: {
             "username": email,
             "password": senha
         }
-    }).then((response) => {
-        expect(response.status).to.equal(201)
+    }).then((response) => {       
         return response.body.authorization
+    })
+})
+
+
+Cypress.Commands.add('cadastrarCustomers', (token, email, nome, sobreNome, telefone) => { 
+    cy.request({
+        method: 'POST',
+        url: 'login',  
+        headers: {accessToken: token},
+        body: {
+
+            "address": {
+                "id": "clabpczmb0086ugpiipzj02e8"
+            },
+            "email": email,
+            "firstName": nome,
+            "lastName": sobreNome,
+            "phone": telefone
+        }           
+    }).then((response) => {       
+        return response.body.accessToken
     })
 })

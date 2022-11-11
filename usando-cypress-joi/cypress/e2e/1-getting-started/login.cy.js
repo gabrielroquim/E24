@@ -2,17 +2,17 @@
 
 describe('Login', () => {
 
+  
     it('Deve fazer login com sucesso', () => {
         cy.request({
             method: 'POST',
             url: 'login',
             body: {
-                "username": "gabriel",
+                "username": "roquim",
                 "password": "admin"
             }
         }).then((response) => {
-            expect(response.status).to.equal(200)
-            expect(response.body.message).to.equal('Login realizado com sucesso')
+            expect(response.status).to.equal(201)          
             cy.log(response.body.authorization)
         })
     });
