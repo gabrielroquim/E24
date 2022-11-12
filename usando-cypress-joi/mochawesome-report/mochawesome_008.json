@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-11-12T15:09:29.445Z",
+    "end": "2022-11-12T15:09:32.432Z",
+    "duration": 2987,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "38f37f1f-82d6-4158-b7f9-50757f5a4038",
+      "title": "",
+      "fullFile": "cypress\\e2e\\2-advanced-examples\\local_storage.cy.js",
+      "file": "cypress\\e2e\\2-advanced-examples\\local_storage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "33a73b67-74eb-4374-a54b-dd818bd11d8d",
+          "title": "Local Storage",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "cy.clearLocalStorage() - clear all data in local storage",
+              "fullTitle": "Local Storage cy.clearLocalStorage() - clear all data in local storage",
+              "timedOut": null,
+              "duration": 810,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/clearlocalstorage\ncy.get('.ls-btn').click().should(() => {\n  expect(localStorage.getItem('prop1')).to.eq('red');\n  expect(localStorage.getItem('prop2')).to.eq('blue');\n  expect(localStorage.getItem('prop3')).to.eq('magenta');\n}); // clearLocalStorage() yields the localStorage object\ncy.clearLocalStorage().should(ls => {\n  expect(ls.getItem('prop1')).to.be.null;\n  expect(ls.getItem('prop2')).to.be.null;\n  expect(ls.getItem('prop3')).to.be.null;\n});\ncy.get('.ls-btn').click().should(() => {\n  expect(localStorage.getItem('prop1')).to.eq('red');\n  expect(localStorage.getItem('prop2')).to.eq('blue');\n  expect(localStorage.getItem('prop3')).to.eq('magenta');\n}); // Clear key matching string in Local Storage\ncy.clearLocalStorage('prop1').should(ls => {\n  expect(ls.getItem('prop1')).to.be.null;\n  expect(ls.getItem('prop2')).to.eq('blue');\n  expect(ls.getItem('prop3')).to.eq('magenta');\n});\ncy.get('.ls-btn').click().should(() => {\n  expect(localStorage.getItem('prop1')).to.eq('red');\n  expect(localStorage.getItem('prop2')).to.eq('blue');\n  expect(localStorage.getItem('prop3')).to.eq('magenta');\n}); // Clear keys matching regex in Local Storage\ncy.clearLocalStorage(/prop1|2/).should(ls => {\n  expect(ls.getItem('prop1')).to.be.null;\n  expect(ls.getItem('prop2')).to.be.null;\n  expect(ls.getItem('prop3')).to.eq('magenta');\n});",
+              "err": {},
+              "uuid": "765bab2d-abda-4219-80b7-5936a13b52df",
+              "parentUUID": "33a73b67-74eb-4374-a54b-dd818bd11d8d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "765bab2d-abda-4219-80b7-5936a13b52df"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 810,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

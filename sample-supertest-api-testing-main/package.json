@@ -1,0 +1,27 @@
+{
+  "name": "sample-supertest-api-testing",
+  "version": "1.0.0",
+  "description": "Testes de API com Supertest",
+  "scripts": {
+    "test": "jest",
+    "test:healthCheck": "jest --testNamePattern=HealthCheck",
+    "test:RegisterCustomers": "jest --testNamePattern=RegisterCustomers",
+    "test:e2e": "jest --testNamePattern=E2E"
+  },
+  "author": "ernestosbarbosa",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^27.5.2",
+    "dotenv": "^10.0.0",
+    "faker-br": "^0.4.1",
+    "jest": "^27.5.1",
+    "jest-html-reporters": "^2.1.7",
+    "supertest": "^6.3.1"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [],
+  "devDependencies": {}
+}
