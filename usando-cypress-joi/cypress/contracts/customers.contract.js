@@ -1,9 +1,8 @@
 const Joi = require ('joi')
 
 const customersSchema = Joi.object({
-    address: Joi.string().itens({
-        id: Joi.string()
-    }), 
+    address: Joi.string(),
+        id: Joi.string(),    
     createdAt: Joi.string(),
         nome: Joi.string(),
         email: Joi.string(),

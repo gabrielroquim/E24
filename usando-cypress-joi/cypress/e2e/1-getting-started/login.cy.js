@@ -6,7 +6,7 @@ describe('Login', () => {
     it('Deve fazer login com sucesso', () => {
         cy.request({
             method: 'POST',
-            url: 'login',
+            url: 'api/login',
             body: {
                 "username": "roquim",
                 "password": "admin"
