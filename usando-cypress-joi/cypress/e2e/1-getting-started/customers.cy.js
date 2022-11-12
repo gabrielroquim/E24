@@ -1,37 +1,55 @@
 /// <reference types="cypress" />
 var faker = require('faker-br')
-///const { getAccessToken } = require('../../../utils/request')
-
-
+import contrato from '../../contracts/customers.contract'
 
 
 describe('Teste de Cliente API', () => {
- let token
-    before(async () => {
+    let token
+    before(() => {
         cy.token('roquim', 'admin').then(tkn => { token = tkn })
     });
 
-    it('Cadastrar Custormers', () => {
-         cy.cadastrarCustomers(token) 
-
-        }).then((response) => {
-            expect(response.status).to.equal(201)
+    it('Deve Validar o contrato de customers', () => {
+        cy.request('customers').then(response => {
+            return contrato.validateAsync(response.body)
         })
+    });
 
+    it('Listar Customers', () => {
+        cy.request({
+            method: 'GET',
+            url: 'api/customers'
+        }).then((response) => {
+            expect(response.body.firstName[0]).to.equal('Amanda')
+            expect(response.status).to.equal(200)
+            expect(response.body).to.have.property('id')
+        })
     });
 
 
-    it(' Deve Listar Clientes', () => {
+    it('Cadastrar Custormers', () => {
+
+        var nome = `${faker.name.firstName()}`
+        var email = `${faker.internet.email()}`
+        var sobreNome = `${faker.name.lastName()}`
+        var telefone = `${faker.phone.phoneNumber()}`
         cy.request({
-            method: 'GET',
-            url: 'customers',
+            method: 'POST',
+            url: '/api/customers',
+            headers: { accessToken: token },
+            body: {
+                "address": {
+                    "id": "clad17m3e0308ygpij1bbr6mg"
+                },
+                "email": email,
+                "firstName": nome,
+                "lastName": sobreNome,
+                "phone": telefone
+            }
 
         }).then((response) => {
             expect(response.status).to.equal(201)
-            expect(response.body.message).to.equal('Login realizado com sucesso')
-            expect(response.data).to.have.property('email')
-
         })
     })
-
+});
 

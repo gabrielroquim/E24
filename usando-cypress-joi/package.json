@@ -10,10 +10,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "assert": "^2.0.0",
     "cypress": "^10.11.0",
     "dotenv": "^16.0.3",
     "env": "^0.0.2",
     "faker-br": "^0.4.1",
-    "supertest": "^6.3.1"
+    "joi": "^17.7.0",
+    "req": "^0.1.4",
+    "require": "^2.4.20",
+    "supertest": "^6.3.1",
+    "test": "^3.2.1"
   }
 }

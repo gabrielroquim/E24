@@ -27,13 +27,13 @@
 Cypress.Commands.add('token', (email, senha) => { 
     cy.request({
         method: 'POST',
-        url: 'login',      
+        url: '/api/login',      
         body: {
             "username": email,
             "password": senha
         }
     }).then((response) => {       
-        return response.body.authorization
+        return response.body.accessToken
     })
 })
 

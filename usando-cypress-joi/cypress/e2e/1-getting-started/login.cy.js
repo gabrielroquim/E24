@@ -13,7 +13,7 @@ describe('Login', () => {
             }
         }).then((response) => {
             expect(response.status).to.equal(201)          
-            cy.log(response.body.authorization)
+            cy.log(response.body.accessToken)
         })
     });
 
